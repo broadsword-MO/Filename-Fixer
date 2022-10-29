@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <style>
+        .container {
+            width: 100%;
+        }
+
+        .quote {
+            *float: left;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            line-height: 2;
+            height: 25px;
+            padding: 0px 5px 10px 5px;
+            margin: 10px;
+            color: white;
+            text-shadow: 1px 1px 2px black, -1px -1px 2px black;
+            background-color: rgb(255, 81, 0);
+            border-radius: 3px;
+        }
+
+        .expandable {
+            overflow: hidden;
+            transition: max-width 1s .2s;
+            max-width: 100px;
+        }
+
+        .expandable:hover {
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="quote expandable"><q>Now is the time for all good men to come to the aid of their country.</q>
+        </div>
+        <div class="quote expandable"><q>Every good boy does fine. Every good boy does fine.</q>
+        </div>
+    </div>
+</body>
+
+</html>

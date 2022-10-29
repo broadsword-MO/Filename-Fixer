@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <style>
+        /*Smooth scrolling on the whole document*/
+        html {
+            scroll-behavior: smooth;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /*For Reduce Motion API*/
+        @media screen and (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /*Smooth scrolling inside an element/scroll container*/
+        /*#my-element {
+            scroll-behavior: smooth;
+        }*/
+
+        .gap {
+            height: 100vw;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+
+            /* For debugging */
+            /* outline: 2px solid red; */
+        }
+
+        /* Up-arrow button */
+        .up-arrow a {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            /* Looks good */
+            font: bold 2.8rem/0.5 courier;
+            padding: .46em .2em 0.04em .2em;
+            border: 2px solid #7c7c7c;
+            border-radius: 40%;
+            background-color: rgba(50, 50, 50, .9);
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.9);
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: transform .1s ease-in-out;
+        }
+
+        /* Up-arrow button changes colors and moves up on hover */
+        .up-arrow a:hover {
+            color: #666;
+            background-color: #dedede;
+            transform: translate(0, -.25rem);
+        }
+
+        /* Up-arrow tooltip */
+        .up-arrow span {
+            color: white;
+            background-color: rgba(50, 50, 50, .9);
+            padding: .5rem;
+            border-radius: .3rem;
+            position: fixed;
+            bottom: 4.7rem;
+            right: 5rem;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity .5s .2s;
+            z-index: 10;
+
+        }
+
+        /* Show tooltip on hover */
+        .up-arrow:hover span {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top" class="gap">Top</div>
+    <div class="gap">Middle</div>
+    <div>Bottom</div>
+    <div class="up-arrow"><a href="#top">^</a><span>Return to top</span></div>
+</body>
+
+</html>

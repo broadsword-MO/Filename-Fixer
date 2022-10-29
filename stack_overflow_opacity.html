@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <style type="text/css">
+        .redbg {
+            background-color: red;
+        }
+
+        .sample1 :not(.NonOpaque) {
+            opacity: 0.5;
+        }
+
+        .sample2:not(.NonOpaque) {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="background-color:rgb(63,72,204); padding:15px; margin:15px;">
+        <div class="redbg sample1">
+            <div>
+                SAMPLE 1.
+            </div>
+            <div class="NonOpaque">
+                I am not Opaque.
+                Blah! Blah! Blah!
+            </div>
+            <div>
+                I am Opaque.
+                Blah! Blah! Blah!
+            </div>
+            <div>
+                I am Opaque.
+                Blah! Blah! Blah!
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color:rgb(63,72,204); padding:15px; margin:15px;">
+        <div>SAMPLE 2.</div>
+        <div class="redbg sample2 NonOpaque">
+            <div style="padding:5px; margin:3px;">
+                I am not Opaque.
+                Blah! Blah! Blah!
+            </div>
+        </div>
+        <div class="redbg sample2">
+            <div style="padding:5px; margin:3px;">
+                We are all Opaque.
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

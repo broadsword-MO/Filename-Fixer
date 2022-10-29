@@ -1,0 +1,115 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-primary: #ee6352;
+    --clr-body: #333;
+    --clr-bg: #ddd;
+}
+
+body {
+    font-family: basic-sans,sans-serif;
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.125em;
+    line-height: 1.6;
+    color: var(--clr-body);
+    background: var(--clr-bg);
+}
+
+.content {
+    background: white;
+    width: 70vw;
+    max-width: 600px;
+    padding: 2em;
+    box-shadow: 0 0 3em rgba(0,0,0,0.15);
+    *position: relative;
+}
+
+.search-bar {
+    --size: 60px;
+    position: relative;
+    border: 2px solid var(--clr-primary);
+    display: flex;
+    border-radius: 100px;
+    height: var(--size);
+    width: var(--size);
+    padding: 1px;
+    overflow: hidden;
+    transition: width .4s cubic-bezier(0.18, 0.89, 0.32, 1.20);
+}
+
+.search-bar__input {
+    position: absolute;
+    flex-grow: 1;
+    font-size: 1.4rem;
+    padding: 0 1em;
+    border: 0;
+    background: white;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+.search-bar__input:focus {
+    outline: none;
+}
+
+.search-bar__submit {
+    font-size: 1.4rem;
+    cursor: pointer;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid white;
+    outline: none;
+    padding: 5px 5px 0px 5px;
+    width: calc(var(--size) - 6px);
+    height: calc(var(--size) - 6px);
+
+    *z-index: 1; /* If this is used, it requires a second click into the text box */
+
+    /* This makes the button slide to the right on expand */
+    margin-left: auto;
+
+    transition: background .2s ease;
+}
+
+/* When :focus-within on .search-bar child, it expands .search-bar */
+.search-bar:focus-within {
+    width: 100%;
+    max-width: 600px;
+    
+}
+
+/* Displays placeholder text */
+.search-bar:focus-within .search-bar__input {
+    opacity: 1;
+    cursor: text;
+    width: calc(100% - var(--size));
+}
+
+
+.search-bar:focus-within .search-bar__submit {
+    background: var(--clr-primary);
+    color: white;
+}
+
+.search-bar__submit:hover,
+.search-bar__submit:focus {
+    box-shadow: 0 0 8px rgba(0,0,0,0.45);
+}
+
+/* .search__svg {
+    height: 30px;
+    width: 30px;
+    color: black;
+    fill: black;
+} */

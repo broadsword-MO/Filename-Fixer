@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Write a short summary of the page contents here">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Doug Wallace, @broadsword-mo">
+    <title>Parallax1 experiment</title>
+    <style>
+        html {
+            text-align: center;
+            font-size: 20pt;
+        }
+
+        body {
+            *transform: translateZ(0px);
+        }
+
+        .parallax {
+            perspective: 1px;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .parallax__group {
+            position: relative;
+            height: 100vh;
+            *transform: translate3d(700px, 0, -800px) rotateY(30deg);
+            transform-style: preserve-3d;
+        }
+
+        .parallax__layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .parallax__layer-fore {
+            position: relative;
+            *transform: translateZ(0);
+            *top: 60%;
+            height: 100vw;
+            z-index: 1;
+        }
+
+        .parallax__layer-back {
+            color: white;
+            *top: 60%;
+            *height: 50vw;
+            position: absolute;
+            z-index: -1;
+            transform: translateZ(-1px) scale(2);
+            background-color: darkslategray;
+        }
+
+        #tile102 {
+            background-color: red;
+        }
+
+        #tile104 {
+            background-color: yellow;
+        }
+
+        #tile106 {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parallax">
+        <div class="parallax__group">
+            <div id="tile201" class="parallax__layer parallax__layer-back">
+                Background
+            </div>
+            <div id="tile101" class="parallax__layer parallax__layer-fore">
+                Foreground
+            </div>
+        </div>
+        <div class="parallax__group">
+            <div id="tile202" class="parallax__layer parallax__layer-back">
+                Background
+            </div>
+            <div id="tile102" class="parallax__layer parallax__layer-fore">
+                Foreground
+            </div>
+        </div>
+        <div class="parallax__group">
+            <div id="tile203" class="parallax__layer parallax__layer-back">
+                Background
+            </div>
+            <div id="tile103" class="parallax__layer parallax__layer-fore">
+                Foreground
+            </div>
+        </div>
+        <div class="parallax__group">
+            <div id="tile204" class="parallax__layer parallax__layer-back">
+                Background
+            </div>
+            <div id="tile104" class="parallax__layer parallax__layer-fore">
+                Foreground
+            </div>
+        </div>
+        <div class="parallax__group">
+            <div id="tile205" class="parallax__layer parallax__layer-back">
+                Background
+            </div>
+            <div id="tile105" class="parallax__layer parallax__layer-fore">
+                Foreground
+            </div>
+        </div>
+        <div class="parallax__group">
+            <div id="tile206" class="parallax__layer parallax__layer-back">
+                Background
+            </div>
+            <div id="tile106" class="parallax__layer parallax__layer-fore">
+                Foreground
+            </div>
+        </div>
+        <div class="parallax__group">
+            <div id="tile207" class="parallax__layer parallax__layer-back">
+                Background
+            </div>
+            <div id="tile107" class="parallax__layer parallax__layer-fore">
+                Foreground
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

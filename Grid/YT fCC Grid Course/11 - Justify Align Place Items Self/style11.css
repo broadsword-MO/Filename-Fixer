@@ -1,0 +1,84 @@
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+    /* For debugging */
+    /* outline: 2px solid red; */
+}
+
+:root {
+    height: 100%;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin: 10px;
+    background: rgb(255, 255, 164);
+    height: 95%;
+}
+
+.header,
+.menu,
+.content,
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header,
+.content {
+    background: rgb(122, 194, 212);
+}
+
+.menu {
+    background: tomato;
+}
+
+.footer {
+    background: rgb(235, 235, 114);
+}
+
+/* Grid stuff */
+.container {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px auto 40px;
+    /* The default value is "stretch" for the justify-items and align-items properties which affects all grid items */
+    /* justify-items: center; Justify-items runs left to right */
+    /* align-items: center; Align-items runs top to bottom. */
+    /* These 2 properties are the same as place-items: whatever; */
+    *place-items: center;
+    /* Can also be written as place-iems: align-items value justify-items value; (if not the same value) */
+}
+
+.header {
+    grid-column: 1 / -1;
+}
+
+.header > div:last-child
+
+.menu {
+    grid-column: 1 / 3;
+}
+
+.content {
+    grid-column: 3 / -1;
+
+    /* The default value is "stretch" for the justify-self and align-self properties which affects an individual grid item*/
+    /* align-self: end; Align-items runs top to bottom. */
+    /* justify-self: end; Justify-items runs left to right */
+    /* These 2 properties are the same as place-self: whatever; */
+    place-self: end;
+    /* Can also be written as place-self: align-self value justify-self value; if not the same value */
+}
+
+.footer {
+    grid-column: 1 / -1;
+}

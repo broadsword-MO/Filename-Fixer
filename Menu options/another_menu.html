@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Write a short summary of the page contents here">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Doug Wallace, @broadsword-mo">
+    <title>Responsive menu option</title>
+    <style>
+        nav select {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                display: none;
+            }
+
+            nav select {
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+
+        <ul>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/collections/all">Books</a></li>
+            <li><a href="/blogs/five-simple-steps-blog">Blog</a></li>
+            <li><a href="/pages/about-us">About Us</a></li>
+            <li><a href="/pages/support">Support</a></li>
+        </ul>
+
+        <select>
+            <option value="" selected="selected">Select</option>
+            <option value="/">Home</option>
+            <option value="/collections/all">Books</option>
+            <option value="/blogs/five-simple-steps-blog">Blog</option>
+            <option value="/pages/about-us">About Us</option>
+            <option value="/pages/support">Support</option>
+        </select>
+
+    </nav>
+</body>
+
+</html>

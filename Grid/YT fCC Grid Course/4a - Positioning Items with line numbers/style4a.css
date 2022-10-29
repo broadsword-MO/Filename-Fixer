@@ -1,0 +1,66 @@
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+    /* For debugging */
+    /* outline: 2px solid red; */
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: white;
+    margin: 10px;
+    background: rgb(255, 255, 164);
+}
+
+.header,
+.menu,
+.content,
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header,
+.content {
+    color: white;
+    background: rgb(122, 194, 212);
+}
+
+.menu {
+    background: tomato;
+}
+
+.footer {
+    background: rgb(235, 235, 114);
+}
+
+/* Grid stuff */
+.container {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px 200px 40px;
+}
+
+.header {
+    /* grid-column: start column line # /(to optional) last (-1) column line # */
+    grid-column: 2 / -1;
+}
+
+.menu {
+    /* grid-row: start row line # /(to optional) end row line # */
+    grid-row: 1 / 3;
+}
+
+.content {
+    /* grid-column: start column line # /(to optional) end column line # */
+    grid-column: 2 / 13;
+}
+
+.footer {
+    grid-column: 1 / -1;
+}

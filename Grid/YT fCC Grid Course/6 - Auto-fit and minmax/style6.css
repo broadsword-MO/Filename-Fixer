@@ -1,0 +1,56 @@
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+    /* For debugging */
+    /* outline: 2px solid red; */
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 15px;
+    background: rgb(255, 255, 164);
+}
+
+.first,
+.second,
+.third,
+.fourth,
+.fifth,
+.sixth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first,
+.third,
+.fifth {
+    background: rgb(122, 194, 212);
+}
+
+.second,
+.sixth {
+    background: tomato;
+}
+
+.fourth {
+    background: rgb(235, 235, 114);
+}
+
+
+/* Grid stuff */
+.container {
+    display: grid;
+    grid-gap: 5px;
+    
+    /* ...: repeat(auto-fit(i.e. however many columns are needed), minmax(minimum size, maximum size)); */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 100px;
+}
+

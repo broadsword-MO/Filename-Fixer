@@ -1,0 +1,69 @@
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+    /* For debugging */
+    /* outline: 2px solid red; */
+}
+
+:root {
+    height: 100%;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    background: rgb(255, 255, 164);
+    height: 95%;
+}
+
+.first,
+.second,
+.third,
+.fourth,
+.fifth,
+.sixth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first,
+.third,
+.fifth {
+    background: rgb(122, 194, 212);
+}
+
+.second,
+.sixth {
+    background: tomato;
+}
+
+.fourth {
+    background: rgb(235, 235, 114);
+}
+
+
+/* Grid stuff */
+.container {
+    height: 95%;
+    border: 1px solid black;
+    margin: 20px;
+
+    display: grid;
+    grid-gap: 5px;
+    grid-template: repeat(2, 100px) / repeat(3, 100px);
+
+    /* The default value is "start" for justify-content and align-content properties */
+    /* align-content: end; Align-content runs top to bottom */
+    /* justify-content: center; Justify-content runs left to right */
+    /* These 2 properties are the same as place-content: whatever; */
+
+    /* place-content: align-content value justify-content value; */
+    place-content: space-evenly; /* If only one value is used, it is applied to both -content properties */
+}
+

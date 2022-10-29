@@ -1,0 +1,49 @@
+/* Basic styling */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: white;
+    background: rgb(255, 255, 164);
+}
+
+.first,
+.second,
+.third,
+.fourth,
+.fifth,
+.sixth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first,
+.third,
+.fifth {
+    background: rgb(122, 194, 212);
+}
+
+.second,
+.sixth {
+    background: tomato;
+}
+
+.fourth {
+    background: rgb(235, 235, 114);
+}
+
+
+/* Grid stuff */
+.container {
+    display: grid;
+
+    /* The 2 rows below are the same as the single grid-template property 5 lines down */
+    /* grid-template-rows: repeat(2, 50px);
+    grid-template-columns: repeat(3, 1fr); */
+
+    /* grid-template: repeat(# of rows, size) / repeat(# of columns, size); */
+    grid-template: repeat(2, 50px) / repeat(3, 1fr);
+    
+    grid-gap: 3px;
+}
+

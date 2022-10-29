@@ -1,0 +1,56 @@
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+    /* For debugging */
+    /* outline: 2px solid red; */
+}
+
+body {
+    margin: 5px;
+    background: rgb(255, 255, 164);
+}
+
+
+/* Grid stuff */
+img {
+    /* Height and width properties necessary for images to completely fill and not overfill whatever spaces they are in */
+    /*  Object-fit: cover; also needed, to keep aspect ratio while cropping as necessary */
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.container {
+    display: grid;
+    grid-gap: 5px;
+
+    /* Below: this doesn't work for this setup because grid aims for a single full width column by default(?) */
+    /* grid-auto-columns: minmax(160px, 1fr);  */
+
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+
+    /* Rows will be implicitly created this size */
+    grid-auto-rows: 90px;
+
+    /* ...: dense; will automatically flow the next item by order into an empty space if possible */
+    grid-auto-flow: dense;
+}    
+
+.horizontal {
+    /* Span 2 columns wherever the image ends up */
+    grid-column: span 2;
+}
+
+.vertical {
+    /* Span 2 rows wherever the image ends up */
+    grid-row: span 2;
+}
+
+.big {
+    /* Span 2 columns and 2 rows wherever the image ends up */
+    grid-column: span 2;
+    grid-row: span 2;
+}
+

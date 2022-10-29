@@ -1,0 +1,63 @@
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+    /* For debugging */
+    /* outline: 2px solid red; */
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 15px;
+    background: rgb(255, 255, 164);
+}
+
+h1 {
+    color: tomato;
+    font-size: 3rem;
+    margin: 1rem;
+}
+.first,
+.second,
+.third,
+.fourth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first,
+.third {
+    background: rgb(122, 194, 212);
+}
+
+.second {
+    background: tomato;
+}
+
+.fourth {
+    background: rgb(235, 235, 114);
+}
+
+
+/* Grid stuff */
+.container1,
+.container2 {
+    border: 1px solid black;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-rows: 100px 100px;
+}
+
+.container1 {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.container2 {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}

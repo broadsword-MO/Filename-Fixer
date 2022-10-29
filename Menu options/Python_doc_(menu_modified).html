@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Write a short summary of the page contents here">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Doug Wallace, @broadsword-mo">
+    <title>Python Introduction (with modified menu)</title>
+    <style>
+        /*At least one media query*/
+        html {
+            color: rgb(30, 30, 30);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: calc(12.5px + 0.7vw);
+        }
+
+        body {
+            background-color: cornsilk;
+        }
+
+        #navbar {
+            background-color: yellow;
+            position: fixed;
+        }
+
+        .nav-header {
+            font-size: 1.4rem;
+            text-align: center;
+            color: white;
+            padding: 10px 5px;
+            background: linear-gradient(to bottom right, rgb(132, 134, 228), blue);
+            border-radius: 3px;
+        }
+
+        nav select {
+            display: none;
+        }
+
+        ol {
+            list-style-type: none;
+            margin: 0 0 0 -2.5rem;
+        }
+
+        .nav-link {
+            display: block;
+            border-bottom: 1px solid rgb(30, 30, 30);
+            text-decoration: none;
+            text-align: center;
+            padding: .5rem;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: white;
+            background-color: darkgreen;
+            /*?*/
+            border-radius: 3px;
+        }
+
+        main {
+            width: 65%;
+            margin: auto 5% auto 30%;
+            *display: inline-block;
+            *vertical-align: top;
+            text-align: justify;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: candara, sans-serif;
+        }
+
+        h2 {
+            font-family: monospace, sans-serif;
+            text-decoration: underline;
+            font-weight: 500;
+            padding-top: 2rem;
+        }
+
+        code {
+            background-color: #d3dce2;
+            font-size: .85rem;
+        }
+
+        pre {
+            font-size: .8rem;
+            margin: .7rem;
+            padding: .3rem;
+            background-color: tan;
+            border: 1px solid brown;
+            border-radius: 3px;
+        }
+
+        .botgap {
+            height: 20rem;
+        }
+
+        footer {
+            background-color: tan;
+            width: 65%;
+            margin-left: 28%;
+            padding: 1rem;
+        }
+
+        @media screen and (min-width: 601px) {
+            html {
+                font-size: calc(14px + 0.3vw);
+            }
+
+            #navbar {
+                top: 5px;
+                left: 0;
+                width: 25%;
+                max-width: 12rem;
+                height: 100%;
+            }
+
+        }
+
+        @media screen and (max-width: 600px) {
+            #navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                *background-color: orange;
+                *height: 10rem;
+                width: 100%;
+                *overflow-y: scroll;
+                *border-bottom: 1px solid rgb(30, 30, 30);
+            }
+
+            .nav-header {
+                font-weight: 600;
+                color: yellow;
+                text-align: left;
+                padding-left: .8rem;
+                background: linear-gradient(to bottom right, rgb(132, 134, 228), blue);
+                box-shadow: 0px 6px 8px rgb(70, 70, 70);
+            }
+
+            nav ol {
+                display: none;
+            }
+
+            nav select {
+                *top: 0;
+                font-size: .9rem;
+                padding: .2rem;
+                display: block;
+                float: right;
+                border-radius: 3px;
+            }
+
+            nav select option {
+                font-family: 'Courier New', Courier, monospace;
+                font-size: .9rem;
+                padding: .5rem;
+            }
+
+            .nav-link {
+                *padding: .2rem;
+            }
+
+            .top-gap {
+                height: 5rem;
+            }
+
+            main {
+                width: 90%;
+                margin: auto;
+            }
+
+            footer {
+                width: 90%;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <header class="nav-header">Introduction to Python
+            <select>
+                <option value="" selected="selected">Menu</option>
+                <option value="#Intro">Intro</option>
+                <option value="/">Home</option>
+                <option value="/">Home</option>
+                <option value="/">Home</option>
+                <option value="/">Home</option>
+                <option value="/">Home</option>
+                <option value="/">Home</option>
+            </select>
+        </header>
+        <ol>
+            <li><a class="nav-link" href="#Intro">Intro</a></li>
+            <li><a class="nav-link" href="#More_details">More details</a></li>
+            <li><a class="nav-link" href="#Detritus">Detritus</a></li>
+            <li><a class="nav-link" href="#The_Interpreter">The Interpreter</a></li>
+            <li><a class="nav-link" href="#Arguments">Arguments</a></li>
+            <li><a class="nav-link" href="#Interactive_Mode">Interactive Mode</a></li>
+            <li><a class="nav-link" href="#Source_Code_Encoding">Source Code Encoding</a></li>
+        </ol>
+    </nav>
+    <main id="main-doc">
+        <div class="top-gap"></div>
+        <h1>An Introduction to Python 3.8</h1>
+        <section class="main-section" id="Intro">
+            <header>
+                <h2>Intro</h2>
+            </header>
+            <p>
+                Python is an easy to learn, powerful programming language. It has efficient high-level data structures
+                and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic
+                typing, together with its interpreted nature, make it an ideal language for scripting and rapid
+                application development in many areas on most platforms.</p>
+
+            <p> The Python interpreter and the extensive standard library are freely available in source or binary form
+                for all major platforms from the Python Web site, <a
+                    href="https://www.python.org/">https://www.python.org/</a>, and may be freely distributed. The same
+                site also contains distributions of and pointers to many free third party Python modules, programs and
+                tools, and additional documentation.</p>
+
+            <p>The Python interpreter is easily extended with new functions and data types implemented in C or C++ (or
+                other languages callable from C). Python is also suitable as an extension language for customizable
+                applications.</p>
+
+            <p>This tutorial introduces the reader informally to the basic concepts and features of the Python language
+                and system. It helps to have a Python interpreter handy for hands-on experience, but all examples are
+                self-contained, so the tutorial can be read off-line as well.</p>
+
+            <p>For a description of standard objects and modules, see The Python Standard Library. The Python Language
+                Reference gives a more formal definition of the language. To write extensions in C or C++, read
+                Extending and Embedding the Python Interpreter and Python/C API Reference Manual. There are also several
+                books covering Python in depth.</p>
+
+            <p>This tutorial does not attempt to be comprehensive and cover every single feature, or even every
+                commonly used feature. Instead, it introduces many of Python’s most noteworthy features, and will give
+                you a good idea of the language’s flavor and style. After reading it, you will be able to read and write
+                Python modules and programs, and you will be ready to learn more about the various Python library
+                modules described in The Python Standard Library.
+            </p>
+        </section>
+        <section class="main-section" id="More_details">
+            <header>
+                <h2>More details</h2>
+            </header>
+            <p>If you do much work on computers, eventually you find that there’s some task you’d like to automate. For
+                example, you may wish to perform a search-and-replace over a large number of text files, or rename and
+                rearrange a bunch of photo files in a complicated way. Perhaps you’d like to write a small custom
+                database, or a specialized GUI application, or a simple game.</p>
+
+            <p>If you’re a professional software developer, you may have to work with several C/C++/Java libraries but
+                find the usual write/compile/test/re-compile cycle is too slow. Perhaps you’re writing a test suite for
+                such a library and find writing the testing code a tedious task. Or maybe you’ve written a program that
+                could use an extension language, and you don’t want to design and implement a whole new language for
+                your application.</p>
+
+            <p>Python is just the language for you.</p>
+
+            <p>You could write a Unix shell script or Windows batch files for some of these tasks, but shell scripts are
+                best at moving around files and changing text data, not well-suited for GUI applications or games. You
+                could write a C/C++/Java program, but it can take a lot of development time to get even a first-draft
+                program. Python is simpler to use, available on Windows, Mac OS X, and Unix operating systems, and will
+                help you get the job done more quickly.</p>
+
+            <p>Python is simple to use, but it is a real programming language, offering much more structure and support
+                for large programs than shell scripts or batch files can offer. On the other hand, Python also offers
+                much more error checking than C, and, being a very-high-level language, it has high-level data types
+                built in, such as flexible arrays and dictionaries. Because of its more general data types Python is
+                applicable to a much larger problem domain than Awk or even Perl, yet many things are at least as easy
+                in Python as in those languages.</p>
+
+            <p>Python allows you to split your program into modules that can be reused in other Python programs. It
+                comes with a large collection of standard modules that you can use as the basis of your programs — or as
+                examples to start learning to program in Python. Some of these modules provide things like file I/O,
+                system calls, sockets, and even interfaces to graphical user interface toolkits like Tk.
+            </p>
+
+        </section>
+        <section class="main-section" id="Detritus">
+            <header>
+                <h2>Detritus</h2>
+            </header>
+            <p>Python is an interpreted language, which can save you considerable time during program development
+                because no compilation and linking is necessary. The interpreter can be used interactively, which makes
+                it easy to experiment with features of the language, to write throw-away programs, or to test functions
+                during bottom-up program development. It is also a handy desk calculator.</p>
+
+            <p>Python enables programs to be written compactly and readably. Programs written in Python are typically
+                much shorter than equivalent C, C++, or Java programs, for several reasons:
+                <ul>
+                    <li>the high-level data types allow you to express complex operations in a single statement;</li>
+
+                    <li>statement grouping is done by indentation instead of beginning and ending brackets;</li>
+
+                    <li>no variable or argument declarations are necessary.</li>
+                </ul>
+            </p>
+            <p>Python is extensible: if you know how to program in C it is easy to add a new built-in function or
+                module to the interpreter, either to perform critical operations at maximum speed, or to link Python
+                programs to libraries that may only be available in binary form (such as a vendor-specific graphics
+                library). Once you are really hooked, you can link the Python interpreter into an application
+                written in C and use it as an extension or command language for that application.</p>
+
+            <p>By the way, just a couple more points about Python:
+                <ul>
+                    <li>The language is named after the BBC show “Monty Python’s Flying Circus” and has nothing
+                        to do with reptiles.</li>
+                    <li>Making references to Monty Python skits in documentation is not only allowed,
+                        it is encouraged!</li>
+                </ul>
+            </p>
+
+            <p>Now that you are all excited about Python, you’ll want to examine it in some more detail. Since the
+                best way to learn a language is to use it, the tutorial invites you to play with the Python
+                interpreter as you read.</p>
+
+            <p>In the next chapter, the mechanics of using the interpreter are explained. This is rather mundane
+                information, but essential for trying out the examples shown later.</p>
+
+            <p>The rest of the tutorial introduces various features of the Python language and system through
+                examples, beginning with simple expressions, statements and data types, through functions and
+                modules, and finally touching upon advanced concepts like exceptions and user-defined classes.</p>
+            <hr>
+        </section>
+        <section class="main-section" id="The_Interpreter">
+            <header>
+                <h2>The Interpreter</h2>
+            </header>
+            <p>The Python interpreter is usually installed as <code>/usr/local/bin/python3.8</code> on those machines
+                where it is
+                available; putting <code>/usr/local/bin</code> in your Unix shell’s search path makes it possible to
+                start it by
+                typing the command:
+
+                <pre>python3.8</pre>
+
+                to the shell. 1 Since the choice of the directory where the interpreter lives is an installation option,
+                other places are possible; check with your local Python guru or system administrator.
+                (E.g.,<code>/usr/local/python</code>
+                is a popular alternative location.)</p>
+
+            <p>On Windows machines where you have installed Python from the Microsoft Store, the <code>python3.8</code>
+                command will
+                be available. If you have the py.exe launcher installed, you can use the py command. See Excursus:
+                Setting environment variables for other ways to launch Python.</p>
+
+            <p>Typing an end-of-file character (Control-D on Unix, Control-Z on Windows) at the primary prompt causes
+                the interpreter to exit with a zero exit status. If that doesn’t work, you can exit the interpreter by
+                typing the following command:
+                <pre>quit()</pre>
+            </p>
+
+            <p>The interpreter’s line-editing features include interactive editing, history substitution and code
+                completion on systems that support the GNU Readline library. Perhaps the quickest check to see whether
+                command line editing is supported is typing Control-P to the first Python prompt you get. If it beeps,
+                you have command line editing; see Appendix Interactive Input Editing and History Substitution for an
+                introduction to the keys. If nothing appears to happen, or if <code>^P</code> is echoed, command line
+                editing isn’t
+                available; you’ll only be able to use backspace to remove characters from the current line.</p>
+            <p>The interpreter operates somewhat like the Unix shell: when called with standard input connected to a tty
+                device, it reads and executes commands interactively; when called with a file name argument or with a
+                file as standard input, it reads and executes a script from that file.</p>
+
+            <p>A second way of starting the interpreter is <code>python -c command [arg] ...</code>, which executes the
+                statement(s)
+                in <i>command</i>, analogous to the shell’s -c option. Since Python statements often contain spaces or
+                other
+                characters that are special to the shell, it is usually advised to quote <i>command</i> in its entirety
+                with
+                single quotes.</p>
+
+            <p>Some Python modules are also useful as scripts. These can be invoked using
+                <code>python -m module [arg] ...</code>,
+                which executes the source file for <i>module</i> as if you had spelled out its full name on the command
+                line.
+            </p>
+
+            <p>When a script file is used, it is sometimes useful to be able to run the script and enter interactive
+                mode afterwards. This can be done by passing <code>-i</code> before the script.</p>
+
+            <p>All command line options are described in Command line and environment.</p>
+        </section>
+        <section class="main-section" id="Arguments">
+            <header>
+                <h2>Arguments</h2>
+            </header>
+            <p>
+                When known to the interpreter, the script name and additional arguments thereafter are turned into a
+                list of strings and assigned to the <code>argv</code> variable in the <code>sys</code> module. You can
+                access this list by executing <code>import sys</code>. The length of the list is at least one; when no
+                script and no arguments are given, <code>sys.argv[0]</code> is an empty string. When the script name is
+                given as <code>'-'</code> (meaning standard input), <code>sys.argv[0]</code> is set to <code>'-'</code>.
+                When -c <i>command</i> is used, <code>sys.argv[0]</code> is set to <code>'-c'</code>. When -m
+                <i>module</i> is used,
+                <code>sys.argv[0]</code> is set to the full name of the located module. Options found after -c
+                <i>command</i>
+                or -m <i>module</i> are not consumed by the Python interpreter’s option processing but left in
+                <code>sys.argv</code> for the command or module to handle.
+            </p>
+        </section>
+        <section class="main-section" id="Interactive_Mode">
+            <header>
+                <h2>Interactive Mode</h2>
+            </header>
+            <p>
+                When commands are read from a tty, the interpreter is said to be in <i>interactive mode</i>. In this
+                mode it
+                prompts for the next command with the <i>primary prompt</i>, usually three greater-than signs
+                (<code>>>></code>); for continuation lines it prompts with the <i>secondary prompt</i>, by default three
+                dots (<code>...</code>). The interpreter prints a welcome message stating its version number and a
+                copyright
+                notice before printing the first prompt:
+            </p>
+            <pre>
+ $ python3.8
+ Python 3.8 (default, Sep 16 2015, 09:25:04)
+ [GCC 4.8.2] on linux
+ Type "help", "copyright", "credits" or
+        "license" for more information.
+ >>></pre>
+            <p>Continuation lines are needed when entering a multi-line construct. As an example, take a look at this
+                <code>if</code>
+                statement:
+            </p>
+            <pre>
+ >>> the_world_is_flat = True
+ >>> if the_world_is_flat:
+ ...     print("Be careful not to fall off!")
+ ...
+ Be careful not to fall off!</pre>
+            <p>For more on interactive mode, see Interactive Mode.
+            </p>
+        </section>
+        <section class="main-section" id="Source_Code_Encoding">
+            <header>
+                <h2>Source Code Encoding</h2>
+            </header>
+            <p>
+                By default, Python source files are treated as encoded in UTF-8. In that encoding, characters of most
+                languages in the world can be used simultaneously in string literals, identifiers and comments —
+                although the standard library only uses ASCII characters for identifiers, a convention that any portable
+                code should follow. To display all these characters properly, your editor must recognize that the file
+                is UTF-8, and it must use a font that supports all the characters in the file.
+            </p>
+            <p>
+                To declare an encoding other than the default one, a special comment line should be added as the first
+                line of the file. The syntax is as follows:
+                <pre>
+ # -*- coding: encoding -*-</pre>
+                where encoding is one of the valid codecs supported by Python.
+            </p>
+            <p>
+                For example, to declare that Windows-1252 encoding is to be used, the first line of your source code
+                file should be:
+                <pre>
+ # -*- coding: cp1252 -*-</pre>
+                One exception to the first line rule is when the source code starts with a UNIX “shebang” line. In this
+                case, the encoding declaration should be added as the second line of the file. For example:
+                <pre>
+ #!/usr/bin/env python3
+ # -*- coding: cp1252 -*-</pre>
+            </p>
+        </section>
+    </main>
+    <div class="botgap"></div>
+    <footer>Content borrowed and slightly adapted from the wonderful <a href="https://www.python.org/">Python.org</a>
+        website &copy; Python Software Foundation, by the author: Doug Wallace, FCC/Github/CodePen:
+        @broadsword-mo.
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+
+        .grid {
+            display: grid;
+            *grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr 3fr 1fr;
+            *grid-template-rows: 100px 200px 200px 100px;
+            grid-template-rows: 1fr 5fr 1fr;
+            grid-gap: 1rem;
+            grid-template-areas: 
+                "header header Raside"
+                "Laside article Raside"
+                "Laside footer footer";
+        }
+
+        header,
+        aside,
+        article,
+        footer {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header {
+            background-color: skyblue;
+            grid-area: header;
+        }
+
+        .Lside {
+            background-color: rosybrown;
+            grid-area: Laside;
+        }
+
+        article {
+            background-color: sandybrown;
+            grid-area: article;
+        }
+
+        .Rside {
+            background-color: rosybrown;
+            grid-area: Raside;
+        }
+
+        footer {
+            background-color: skyblue;
+            grid-area: footer;
+        }
+
+        @media screen and (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+                grid-template-areas: "header"
+                    "article"
+                    "article"
+                    "footer";
+            }
+
+            .Rside,
+            .Lside {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+        <header>Header</header>
+        <aside class="Lside">Left sidebar</aside>
+        <article>Article</article>
+        <aside class="Rside">Right sidebar</aside>
+        <footer>Footer</footer>
+    </div>
+</body>
+
+</html>

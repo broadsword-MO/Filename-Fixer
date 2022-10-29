@@ -1,0 +1,52 @@
+/* Basic styling */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: white;
+    *margin: 10px; /* Default size for Edge browser? */
+    background: rgb(255, 255, 164);
+    height: 100%;
+}
+
+.first,
+.second,
+.third,
+.fourth,
+.fifth,
+.sixth {
+    /* This is just to center the text inside its container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first,
+.third,
+.fifth {
+    background: rgb(122, 194, 212);
+}
+
+.second,
+.sixth {
+    background: tomato;
+}
+
+.fourth {
+    background: rgb(235, 235, 114);
+}
+
+
+/* Grid stuff */
+.container {
+    /* By default grid runs as a single column, while flex runs as a single row */
+    display: grid;
+
+    /* grid-template-columns: column 1 size, column 2 size, etc.; */
+    grid-template-columns: 100px auto;
+
+    /* grid-template-rows: row 1 size, row 2 size, etc.; */
+    grid-template-rows: 50px 50px 200px;
+    
+    grid-gap: 3px;
+}
+

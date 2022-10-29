@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <style>
+        .green-box {
+            height: 150px;
+            width: 150px;
+            margin: 50px;
+            background-color: green;
+            transform-origin: 25% 75%;
+
+            /*"transition: -property -duration -timing-function(or ease-) -delay"*/
+            transition: transform .3s ease-in-out .2s;
+        }
+
+        .green-box:hover {
+            transform: rotate(25deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="green-box"></div>
+</body>
+
+</html>

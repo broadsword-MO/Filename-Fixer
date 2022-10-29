@@ -1,0 +1,48 @@
+.bg {
+    *background-color: cadetblue;
+    background-image: url(k-mitch-hodge-tpHJ_8aMC1I-unsplash.jpg);
+    background-repeat: no-repeat;
+    height: 300%;
+}
+
+.glass {
+    position: fixed;
+    margin: 200px 30%;
+    width: 40%;
+    height: 200px;
+
+    /* Glare on glass */
+    background: linear-gradient(110deg, transparent, rgba(234, 234, 234, 0.3), rgba(234, 234, 234, 0.4), transparent);
+
+    /* Border */
+    border-top: 2px solid rgba(221, 221, 221, 0.8);
+    border-right: 2px solid rgba(221, 221, 221, 0.3);
+    border-bottom: 2px solid rgba(221, 221, 221, 0.3);
+    border-left: 2px solid rgba(221, 221, 221, 0.8);
+    border-radius: 10px;
+
+    /* Glass edge */
+    /* box-shadow: inset(opt.) x(+ or -) y(+ or -) blur(opt.) spread(opt.) color; */
+    box-shadow: 1px 1px 0px 1px rgb(128, 128, 128),
+                2px 2px 0px 1px rgb(85, 85, 85),
+                3px 3px 0px 1px rgb(43, 43, 43),
+                4px 4px 0px 1px rgb(85, 85, 85),
+                10px 10px 15px 0px rgba(0, 0, 0, 0.6);
+    
+    /* text styling */
+    *font-family: Arial, Helvetica, sans-serif;
+    *font-weight: bold;
+    *font-size: 3rem;
+
+    /* font: font-style(italic...), font-variant(small-caps...), font-weight(bold...), font-size/line-height, font-family(with commas between); */
+    font: bold 3rem Tahoma, Arial, Helvetica, sans-serif;
+
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+
+    /* text-shadow: x(+ or -) y(+ or -) blur(opt.) color; */
+    text-shadow: -1px -1px rgba(0, 0, 0, 0.5);
+
+    /* text-shadow: 4px 4px 5px rgba(0, 0, 0, 0.7),
+                0px 0px 5px black; */
+}

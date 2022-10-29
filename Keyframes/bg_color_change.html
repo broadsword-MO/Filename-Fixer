@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <style>
+        .aa {
+            width: 100%;
+            height: 80vh;
+            *background-color: orange;
+            animation-name: bgcolorchange;
+            animation-duration: 24s;
+            animation-iteration-count: infinite;
+            animation-direction: normal; /*default*/
+        }
+
+        .ab {
+            width: 100%;
+            height: 80vh;
+            background-color: orange;
+            *animation-name: bgcolorchange;
+            animation-duration: 13s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .ab:hover {
+            animation-name: bgcolorchange;
+        }
+
+        .ac {
+            width: 100%;
+            height: 80vh;
+            *background-color: orange;
+            animation-name: bgcolorchange;
+            animation-duration: 35s;
+            animation-iteration-count: infinite;
+            animation-direction: reverse;
+        }
+
+        @keyframes bgcolorchange {
+            0% {
+                background-color: orange;
+            }
+
+            33% {
+                background-color: yellow;
+            }
+
+            67% {
+                background-color: darkorange;
+            }
+
+            100% {
+                background-color: orange;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aa"></div>
+    <div class="ab"></div>
+    <div class="ac"></div>
+</body>
+
+</html>

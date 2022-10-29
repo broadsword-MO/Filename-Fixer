@@ -1,0 +1,73 @@
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+    /* For debugging */
+    /* outline: 2px solid red; */
+}
+
+:root {
+    height: 100%;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin: 10px;
+    background: rgb(255, 255, 164);
+    height: 95%;
+}
+
+.header,
+.menu,
+.content,
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header,
+.content {
+    background: rgb(122, 194, 212);
+}
+
+.menu {
+    background: tomato;
+}
+
+.footer {
+    background: rgb(235, 235, 114);
+}
+
+/* Grid stuff */
+.container {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;
+    /* grid-template-columns: [grid line name] column size [next grid line name] next column size [next grid line name (separate multiple names with a space)] etc.; */
+    grid-template-columns: [main-start] 1fr [content-start] 5fr [content-end main-end];
+    grid-template-rows: [main-start] 40px [content-start] auto [content-end] 40px [main-end];
+}
+
+.header {
+    /* grid-column: 1 / 3; the same as 
+    grid-column: main-start / main-end; the same as */
+    grid-column: main;
+}
+
+.menu {
+    grid-row: content; /* Correct, but actually unneeded in this case since it is next to and matches the content row size */
+}
+.content {
+    /* grid-column: content;
+    grid-row: content; These 2 lines are the same as */
+    grid-area: content; /* Use this for areas that are boxed in on all 4 sides with one line-name type */
+}
+
+.footer {
+    grid-column: main;
+}

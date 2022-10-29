@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <style>
+        .wrapper {
+            /* The height needs to be set to a fixed value for the effect to work.
+   * 100vh is the full height of the viewport. */
+            height: 97vh;
+            /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
+            overflow-x: hidden;
+            /* Enable scrolling on the page. */
+            overflow-y: auto;
+            /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
+            perspective: 2px;
+        }
+
+        .section {
+            /* Needed for children to be absolutely positioned relative to the parent. */
+            position: relative;
+            /* The height of the container. Must be set, but it doesn't really matter what the value is. */
+            height: 97vh;
+
+            /* For text formatting. */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 0 5px #000;
+        }
+
+        .parallax::after {
+            /* Display and position the pseudo-element */
+            content: " ";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: -3px;
+
+            /* Move the pseudo-element back away from the camera,
+   * then scale it back up to fill the viewport.
+   * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+            transform: translateZ(-1px) scale(1.5);
+            /* Force the background image to fill the whole element. */
+            background-size: 100%;
+            /* Keep the image from overlapping sibling elements. */
+            z-index: -1;
+        }
+
+        /* The styling for the static div. */
+        .static {
+            background: red;
+            max-height: 80vh;
+            box-shadow: 0 6px 8px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Sets the actual background images. This part is crucial. */
+        .bg1::after {
+            background: url("josh-clemence-KiskZOMfDro-unsplash (1).jpg") no-repeat center center;
+            opacity: 0.8;
+            background-size: cover;
+        }
+
+        .bg2::after {
+            background: url("k-mitch-hodge-tpHJ_8aMC1I-unsplash (1).jpg") no-repeat center center;
+            background-size: cover;
+        }
+
+        .bg3::after {
+            background: url("k-mitch-hodge-keotiKDPepg-unsplash (1).jpg") no-repeat center center;
+            background-size: cover;
+        }
+
+        .box {
+            padding: 3rem;
+            max-width: 70%;
+            border-radius: 15px;
+            background-color: rgba(109, 109, 109, 0.9);
+            box-shadow: 0 1px 8px 2px rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="wrapper">
+        <section class="section parallax bg1">
+            <div class="box">
+                <h1>Such Adorableness</h1>
+            </div>
+        </section>
+        <section class="section static">
+            <h1>Boring</h1>
+        </section>
+        <section class="section parallax bg2">
+            <h1>SO FWUFFY AWWW</h1>
+        </section>
+        <section class="section static">
+            <h1>Boring</h1>
+        </section>
+        <section class="section parallax bg3">
+            <h1>SO FWUFFY AWWW</h1>
+        </section>
+        <section class="section static">
+            <h1>Boring</h1>
+        </section>
+    </main>
+</body>
+
+</html>

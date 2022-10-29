@@ -1,0 +1,93 @@
+/* Basic styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    
+    /* For debugging */
+    /* outline: 2px solid red; */
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin: 10px;
+    background: rgb(255, 255, 164);
+}
+
+p {
+    color: rgb(122, 194, 212);
+    margin: 20px;
+}
+
+.flexbox-header > div,
+.grid-page > div:not(.header),
+.header > div {
+    padding: 5px 12px;
+}
+
+.flexbox-header {
+    margin-bottom: 50px;
+}
+
+.header,
+.menu,
+.content,
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexbox-header,
+.header,
+.content {
+    background: rgb(122, 194, 212);
+}
+
+.menu {
+    background: tomato;
+}
+
+.footer {
+    background: rgb(235, 235, 114);
+}
+
+/* Flex stuff */
+.flexbox-header {
+    display: flex;
+}
+
+.flexbox-header > div:last-child {
+    margin-left: auto;
+}
+
+/* Grid stuff */
+.grid-page {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 40px 200px 40px;
+}
+
+.header {
+    grid-column: 1 / -1;
+    display: flex;
+}
+
+.header > div:nth-child(3) {
+    margin-left: auto;
+}
+
+.menu {
+    grid-column: 1 / 3;
+}
+
+.content {
+    grid-column: 3 / -1;
+}
+
+.footer {
+    grid-column: 1 / -1;
+}

@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: arial;
+            background-color: rgb(255, 145, 0);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .group {
+            display: grid;
+        }
+
+        @media screen and (min-width: 601px) {
+            .group {
+                grid-template-columns: 1fr 2fr 1fr;
+                }
+        }
+
+        @media screen and (max-width: 600px) {
+            .group {
+                grid-template-rows: 1fr 1fr 1fr;
+            }
+        }
+
+        .focus {
+            background-color: white;
+            border: 2px solid red;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 15px;
+            opacity: .6;
+            transition: opacity .7s, transform .6s;
+        }
+
+        .focus:hover {
+            opacity: 1;
+            transform: scale(1.04);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Scale and opacity on hover</h1>
+    <div class="group">
+        <div class="focus">
+            <p>Fusce ut placerat eros. Aliquam consequat in augue sed convallis. Donec orci urna, tincidunt vel dui at,
+                elementum semper dolor. Donec tincidunt risus sed magna dictum, quis luctus metus volutpat. Donec
+                accumsan et nunc vulputate accumsan. Vestibulum
+        </div>
+        <div class="focus">
+            <p>Fusce ut placerat eros. Aliquam consequat in augue sed convallis. Donec orci urna, tincidunt vel dui at,
+                elementum semper dolor. Donec tincidunt risus sed magna dictum, quis luctus metus volutpat. Donec
+                accumsan et nunc vulputate accumsan. Vestibulum quis lacinia mauris condimentum. Quisque quis odio
+                venenatis, venenatis nisi a, vehicula ipsum. Etiam at nisl eu felis vulputate porta.</p>
+
+        </div>
+        <div class="focus">
+            <p>Fusce ut placerat eros. Aliquam consequat in augue sed convallis. Donec orci urna, tincidunt vel dui at,
+                elementum semper dolor. Donec tincidunt risus sed magna dictum, quis luctus metus volutpat. Donec
+                accumsan et nunc vulputate accumsan. Vestibulum
+        </div>
+    </div>
+</body>
+
+</html>
