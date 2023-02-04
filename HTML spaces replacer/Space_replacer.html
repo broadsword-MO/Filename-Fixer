@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>Document</title>
+        <!-- <script src="main.js"></script> -->
+    </head>
+
+        <!-- - Still needs refinement. 
+        - Some thoughts:
+            - Ability to change to and from HTML style
+            - Ability to "sanitize" the webpage name of unnecessary characters for the initial saving to my hard drive
+            - Ability to save the most recent results to temporary cache or some such -->
+
+    <body>
+        <div class="wrapper">
+            <div class="content">
+                <h1>Filename space replacer</h1>
+                <h2>
+                    Replace the empty spaces in your filename with the "%20"
+                    required in HTML!
+                </h2>
+                <p class="header">
+                    Example:<br />
+                    <code>This is your file.html</code>
+                    <br />will return<br />
+                    <code>This%20is%20your%20file.html</code>
+                </p>
+                <label for="input">Input:</label>
+                <input
+                    type="text"
+                    name="input"
+                    id="input"
+                    placeholder="Paste the filename here"
+                    autofocus
+                    onclick="this.select()"
+                    oninput="onInputChange()" />
+                <br />
+                <div class="outputLabelAndButton">
+                    <label class="outputLabel" for="output">Output:</label>
+                    <button id="button" onclick="selectStringCopy()">
+                        Copy modified filename
+                    </button>
+                </div>
+                <div class="allResults">
+                    <div name="output" class="output" id="output"></div>
+                    <div><u>Recent results:</u><p id="recentResults"></p></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const input = document.getElementById('input');
+            const output = document.getElementById('output');
+            const recResults = document.getElementById('recentResults');
+            // Works good!
+            function onInputChange() {
+                // .value only works to extract current text with 'input', 'form', 'textarea' etc.
+                const fileName = input.value;
+                output.innerHTML = fileName.replace(/"/g, '').trim().replace(/\s/g, '%20');
+            }
+
+            const makeSelection = (elem) => window.getSelection().selectAllChildren(elem);
+            const getSelectedText = () => window.getSelection().toString();
+            const copyToClipboard = (text) =>
+                navigator.clipboard?.writeText && navigator.clipboard.writeText(text);
+            const recentResults = [];
+
+            function selectStringCopy() {
+                makeSelection(output);
+                getSelectedText()+'<br />' != recentResults[0] && recentResults.unshift(`${getSelectedText()}<br />`);
+                console.log('⚡recentResults[0] >>', recentResults[0]);
+                recentResults.length > 5 && recentResults.pop();
+                copyToClipboard(getSelectedText());
+                recResults.setHTML(recentResults.join(' '));
+                input.select();
+            }
+        </script>
+    </body>
+</html>
