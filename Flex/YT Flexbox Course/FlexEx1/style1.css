@@ -86,7 +86,7 @@ li {
     *flex-wrap: wrap;
 }
 
-/* @NOTE  Flex property values stated in straight numerical fashion are Proportional/Relational, a Ratio. */
+/* NOTE  Flex property values stated in straight numerical fashion are Proportional/Relational, a Ratio. */
 .home {
     /* flex: flex-grow flex-shrink flex-basis;
     flex: <number>; is equal to flex: <number> 1 0;
@@ -122,15 +122,15 @@ li {
 .logout {
     *flex: 1;
 
-    /* @NOTE justify-self: is non-Flexbox specific and needs more study/clarification */
+    /* NOTE justify-self: is non-Flexbox specific and needs more study/clarification */
     *justify-self: flex-end;
 
     *flex-grow: 1;
     *flex-shrink: 1;
     *flex-basis: 200px;
 
-    /* Order: 0 + or -; positive makes it later in the order, negative makes it sooner and 0 leaves it alone
-    *(order: 0; is the default.) */
+    /* Order: 0 + or -; positive makes it later in the order, negative makes it sooner and 0 leaves it alone */
+    /* (order: 0; is the default.) */
     *order: 0;
 }
 
