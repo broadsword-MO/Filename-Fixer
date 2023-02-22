@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <main>
+            <p>Welcome to my website.</p>
+            <button onclick="selectStringCopy()">Select Footer</button>
+            <p>I hope you enjoy your visit.</p>
+        </main>
+        <div class="footer">
+            webmaster@example.com<br />
+            © 2019
+        </div>
+        <script>
+            // NOTE Below UnN with onclick in HTML above
+            // const button = document.querySelector('button');
+            // REVIEW Line below only seems to work with embedded JavaScript, not separate file. Why?
+            const footer = document.querySelector('.footer');
+
+            const makeSelection = (elem) => window.getSelection().selectAllChildren(elem);
+            const getSelectedText = () => window.getSelection().toString();
+            const copyToClipboard = (text) => navigator.clipboard?.writeText && navigator.clipboard.writeText(text);
+
+            function selectStringCopy() {
+                makeSelection(footer);
+                getSelectedText();
+                copyToClipboard(getSelectedText());
+                console.log(
+                    '🔥getSelectedText >>',
+                    getSelectedText(),
+                    typeof getSelectedText()
+                );
+            }
+
+            // NOTE Below UnN with onclick in HTML above
+            // button.addEventListener('click', () => selectStringCopy());
+        </script>
+    </body>
+</html>
