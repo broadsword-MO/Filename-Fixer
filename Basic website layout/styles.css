@@ -1,0 +1,9 @@
+p {
+    background: orange;
+    padding-bottom: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 5rem;
+    color: yellow;
+    outline: black solid 2px;
+    text-shadow: 3px 3px 0 orange, 6px 6px gray;
+}
