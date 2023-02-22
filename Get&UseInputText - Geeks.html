@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body style="text-align: center">
+        <h1 style="color: green">GeeksforGeeks</h1>
+        <h2>Text value property</h2>
+        <p>
+            Change the text of the input field, and then click the button below.
+        </p>
+        Input:<input
+            type="text"
+            id="myText"
+            onclick="this.select()"
+            autofocus />
+        <button type="button" onclick="myFunction()">Try it</button>
+        <p id="demo"></p>
+
+        <script>
+            // Here the value is stored in new variable x
+            function myFunction() {
+                const x = document.getElementById('myText').value;
+                // document.getElementById('demo').setHTML(x, Sanitizer); // setHTML is still experimental as of 1/2023
+                document.getElementById('demo').innerHTML = x;
+                document.getElementById('myText').select();
+            }
+        </script>
+    </body>
+</html>
