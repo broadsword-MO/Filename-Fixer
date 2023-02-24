@@ -9,6 +9,12 @@ const copyToClipboard = (text) =>
     navigator.clipboard?.writeText && navigator.clipboard.writeText(text);
 const recentResults = [];
 
+function getAndTrimText() {
+    const filename = document.getElementById('input').value;
+    const trimFilename = filename.replace(/^"|"$/g, '').trim();
+    return trimFilename;
+}
+
 function addResultToRecentWithBreak() {
     `${getSelectedText()}<br />` != recentResults[0] &&
         recentResults.unshift(`${getSelectedText()}<br />`);
@@ -19,45 +25,45 @@ function selectStringCopy() {
     makeSelection(document.getElementById('output'));
     addResultToRecentWithBreak();
     copyToClipboard(getSelectedText());
-    document.getElementById('recentResults').innerHTML = recentResults.join(' ');
+    document.getElementById('recentResults').innerHTML =
+        recentResults.join(' ');
     document.getElementById('input').select();
+}
+
+function setHtmlSSC(filename) {
+    document.getElementById('output').innerHTML = filename;
+    selectStringCopy(filename);
 }
 
 // .value only works to extract current text with 'input', 'form', 'textarea' etc.
 function fillSpaces() {
-    const filename = document.getElementById('input').value;
-    const fixedFilename = filename
-        .replace(/^"|"$/g, '')
-        .trim()
-        .replace(/\s/g, '%20');
-    document.getElementById('output').innerHTML = fixedFilename;
-    selectStringCopy(fixedFilename);
+    const trimFilename = getAndTrimText();
+    const fixedFilename = trimFilename.replace(/\s/g, '%20');
+    setHtmlSSC(fixedFilename);
 }
 
 function removeSpaces() {
-    const filename = document.getElementById('input').value;
-    const fixedFilename = filename
-        .replace(/^"|"$/g, '')
-        .trim()
-        .replace(/%20/g, ' ');
-    document.getElementById('output').innerHTML = fixedFilename;
-    selectStringCopy(fixedFilename);
+    const trimFilename = getAndTrimText();
+    const fixedFilename = trimFilename.replace(/%20/g, ' ');
+    setHtmlSSC(fixedFilename);
 }
 
 function spinalCase() {
-    const filename = document.getElementById('input').value;
-    const fixedFilename = filename
-        .replace(/^"|"$/g, '')
-        .trim()
-        .replace(/(\w)[ _]?([A-Z])| |%20/g, '$1-$2')
+    const trimFilename = getAndTrimText();
+    let extension;
+    const splitName = trimFilename.split('.');
+    splitName.length > 1 && (extension = splitName.pop().toLowerCase());
+    const name = splitName
+        .join(' ')
+        .replace(/([a-z0-9])[ _-]*([A-Z])|%20/g, '$1-$2')
+        .replace(/([a-z0-9])[ _-]+([a-z0-9])/g, '$1-$2')
         .toLowerCase();
-    document.getElementById('output').innerHTML = fixedFilename;
-    selectStringCopy(fixedFilename);
+    const fixedFilename = extension ? `${name}.${extension}` : name;
+    setHtmlSSC(fixedFilename);
 }
 
 function camelCase() {
-    const filename = document.getElementById('input').value;
-    const trimFilename = filename.replace(/^"|"$/g, '').trim();
+    const trimFilename = getAndTrimText();
     let extension;
     const splitName = trimFilename.split('.');
     splitName.length > 1 && (extension = splitName.pop().toLowerCase());
@@ -69,8 +75,7 @@ function camelCase() {
         )
         .replace(/\s+/g, '');
     const fixedFilename = extension ? `${name}.${extension}` : name;
-    document.getElementById('output').innerHTML = fixedFilename;
-    selectStringCopy(fixedFilename);
+    setHtmlSSC(fixedFilename);
 }
 
 // This isYour%20other-file.html
