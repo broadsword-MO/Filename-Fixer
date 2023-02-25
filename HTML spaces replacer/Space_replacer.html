@@ -17,64 +17,64 @@
     <body>
         <div class="wrapper">
             <div class="content">
-                <h1>Filename fixer</h1>
-                <h2>Alter filenames to work wherever you need</h2>
-                <p>
+                <div class="heading">
+                    <h1>Filename fixer</h1>
+                    <h2>
+                        Alter filenames to work<br class="line-break" />
+                        wherever you need
+                    </h2>
+                </div>
+                <p class="description">
                     <b>Fill spaces</b> with <b>%20</b> to work in your browser.
                     <u>Example:</u><br />
-                    <code>This is your file.html</code> will return
+                    <code>This is your file.html</code> will return<br
+                        class="line-break" />
                     <code>This%20is%20your%20file.html</code>
                 </p>
-                <p>
+                <p class="description">
                     <b>Remove "%20"s</b> and replace with a space.
                     <u>Example:</u><br />
-                    <code>This%20is%20your%20file.html</code> will return
+                    <code>This%20is%20your%20file.html</code> will return<br
+                        class="line-break" />
                     <code>This is your file.html</code>
                 </p>
-                <p>
-                    <b>spinal-case</b> adds a <b>dash</b> in each <i>space</i>,
-                    <i>%20</i>, or next to each <i>Capital</i>. <u>Example:</u
-                    ><br />
-                    <code>This isYour%20file.html</code> will return
+                <p class="description">
+                    <b>spinal-case</b> adds a <b>dash</b> in place of
+                    <i>spacers</i>, or next to each <i>Capital</i>.
+                    <u>Example:</u><br />
+                    <code>This isYour%20file.html</code> will return<br
+                        class="line-break" />
                     <code>this-is-your-file.html</code>
                 </p>
-                <p>
+                <p class="description">
                     <b>camelCase</b> removes any type of <i>spacers</i> and
                     <b>capitalizes</b> the first letter of each word
                     <i>following the first</i>. <u>Example:</u><br />
-                    <code>This _isYour%20other-.file.html</code> will return
+                    <code>This _isYour%20other-.file.html</code> will return<br
+                        class="line-break" />
                     <code>thisIsYourOtherFile.html</code>
                 </p>
-                <label for="input">Input:</label>
-                <input
-                    type="text"
-                    name="input"
-                    id="input"
-                    placeholder="Paste the filename here"
-                    autofocus
-                    onclick="this.select()" />
+                <label
+                    >Input:
+                    <input
+                        type="text"
+                        id="input"
+                        placeholder="Paste the filename here"
+                        autofocus
+                        onclick="this.select()"
+                /></label>
                 <br />
                 <div class="outputLabelAndButtons">
                     <label class="outputLabel" for="output">Output:</label>
-                    <button id="fillSpacesButton" onclick="fillSpaces()">
-                        Fill spaces
-                    </button>
-                    <button id="removeSpacesButton" onclick="removeSpaces()">
-                        Remove "%20"s
-                    </button>
-                    <button id="spinalCaseButton" onclick="spinalCase()">
-                        spinal-case
-                    </button>
-                    <button id="camelCaseButton" onclick="camelCase()">
-                        camelCase
-                    </button>
+                    <button onclick="fillSpaces()">Fill spaces</button>
+                    <button onclick="removeSpaces()">Remove "%20"s</button>
+                    <button onclick="spinalCase()">spinal-case</button>
+                    <button onclick="camelCase()">camelCase</button>
                 </div>
                 <div class="allResults">
                     <div name="output" class="output" id="output"></div>
-                    <div>
-                        <u>Recent results:</u>
-                        <p id="recentResults"></p>
-                    </div>
+                    <u>Recent results:</u>
+                    <p class="recentResults" id="recentResults"></p>
                 </div>
             </div>
         </div>
