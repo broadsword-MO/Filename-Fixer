@@ -1,20 +1,20 @@
-::root {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --offwhite: #eee;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: min(max(14px, 2.5vw), 18px);
 }
 
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     border-radius: 0.5em;
 }
 
 body {
-    background: #eee;
+    background: var(--offwhite);
     height: 100vh; /* Necessary for flex w/ overflow */
     margin: 0; /* Necessary for flex w/ overflow */
-    font-family: 'Open Sans', 'Helvetica Neue',
-    sans-serif;
-    font-size: min(max(14px, 2.5vw), 18px);
 }
 
 .wrapper {
@@ -28,22 +28,39 @@ body {
     padding: 1.5em;
     margin: auto; /* Necessary for flex w/ overflow */
     max-width: 64ch; /* Necessary for flex w/ overflow */
-    border-radius: 2em;
+    border-radius: 0; /* No rounding here for mobile */
 }
 
-h1 {
+.heading {
+    color: var(--offwhite);
+    background-color: rgb(48, 48, 80);
+    padding: 1em;
+    outline: 3px solid black;
+}
+
+h1,
+h2 {
     text-align: center;
 }
 
+h2 {
+    font-size: 1.25rem;
+}
+
+.description {
+    margin: 1em 0;
+}
+
 code {
-    background: #eee;
+    background: var(--offwhite);
     padding: 0.1em 0.3em;
+    font-size: 0.9rem;
 }
 
 input {
     margin-top: 0.5em;
-    width: calc(100% - 1.1em);
-    font-size: 1em;
+    width: 100%;
+    font-size: 1rem;
     margin-bottom: 0.4em;
 }
 
@@ -51,32 +68,42 @@ input,
 button,
 .allResults {
     padding: 0.5em;
-}    
+}
 
 .outputLabelAndButtons {
-    /* margin-top: -0.5em; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-}    
+}
 
 button {
-    font-size: 0.75em;
-    margin-bottom: 0.5em;
+    font-size: 0.7em;
+    margin-bottom: 0.75em;
 }
 
 .output {
     overflow-wrap: break-word;
     margin-top: 0.5em;
     min-height: 1.4em;
-    /* width: 95%; */
     margin-bottom: 1em;
 }
 
 .allResults {
-    outline: 2px solid white;
+    outline: 3px solid var(--offwhite);
 }
 
-#recentResults {
+.recentResults {
     overflow-wrap: break-word;
+}
+
+@media screen and (min-width: 450px){
+    .content {
+        border-radius: 1.5em;
+    }
+}
+
+@media screen and (min-width: 550px){
+    .line-break {
+        display: none;
+    }
 }
