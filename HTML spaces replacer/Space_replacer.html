@@ -11,7 +11,6 @@
 
     <!-- - Still needs refinement. 
         - Some thoughts:
-            - Ability to "sanitize" the webpage name of unnecessary characters for the initial saving to my hard drive
             - Ability to save the most recent results to temporary cache or some such. Maybe PWA style -->
 
     <body>
@@ -23,53 +22,71 @@
                         Alter filenames to work<br class="line-break" />
                         wherever you need
                     </h2>
+                    <p>A click on any button will copy the results to your clipboard</p>
                 </div>
                 <p class="description">
                     <b>Fill spaces</b> with <b>%20</b> to work in your browser.
                     <u>Example:</u><br />
-                    <code>This is your file.html</code> will return<br
-                        class="line-break" />
+                    <code>This is your file.html</code> returns
+                    <br class="line-break" />
                     <code>This%20is%20your%20file.html</code>
                 </p>
                 <p class="description">
-                    <b>Remove "%20"s</b> and replace with a space.
+                    <b>Remove "%20"s</b> and replace with a <b>space</b>.
                     <u>Example:</u><br />
-                    <code>This%20is%20your%20file.html</code> will return<br
-                        class="line-break" />
+                    <code>This%20is%20your%20file.html</code> returns
+                    <br class="line-break" />
                     <code>This is your file.html</code>
                 </p>
                 <p class="description">
-                    <b>spinal-case</b> adds a <b>dash</b> in place of
-                    <i>spacers</i>, or next to each <i>Capital</i>.
+                    <b>snake_case</b> adds an <b>underscore</b> betweeen word or
+                    number groups and <b>lowercases</b> everything.
                     <u>Example:</u><br />
-                    <code>This isYour%20file.html</code> will return<br
-                        class="line-break" />
+                    <code>" This isYour%20%20file.html</code> returns
+                    <br class="line-break" />
+                    <code>this_is_your_file.html</code>
+                </p>
+                <p class="description">
+                    <b>spinal-case</b> adds a <b>dash</b> betweeen word or
+                    number groups and <b>lowercases</b> everything.
+                    <u>Example:</u><br />
+                    <code>" This isYour%20%20file.html</code> returns
+                    <br class="line-break" />
                     <code>this-is-your-file.html</code>
                 </p>
                 <p class="description">
                     <b>camelCase</b> removes any type of <i>spacers</i> and
                     <b>capitalizes</b> the first letter of each word
                     <i>following the first</i>. <u>Example:</u><br />
-                    <code>This _isYour%20other-.file.html</code> will return<br
-                        class="line-break" />
+                    <code>This _isYour%20other.file.html</code> returns
+                    <br class="line-break" />
                     <code>thisIsYourOtherFile.html</code>
                 </p>
-                <label
-                    >Input:
-                    <input
-                        type="text"
-                        id="input"
-                        placeholder="Paste the filename here"
-                        autofocus
-                        onclick="this.select()"
-                /></label>
+                <p class="description">
+                    <b>Sanitize</b> replaces <i>most symbols</i> with a
+                    <i>single space</i>. <u>Example:</u><br />
+                    <code>This _2.1Your%20-file's.html</code> returns
+                    <br class="line-break" />
+                    <code>This 2.1 Your -file's.html</code>
+                </p>
+                <div class="inputLabelAndButtons">
+                    <label class="inputLabel" for="input">Input: </label>
+                    <button onclick="fillSpaces()">Fill spaces</button>
+                    <button onclick="removeSpaces()">Remove "%20"s</button>
+                    <button onclick="snakeCase()">snake_case</button>
+                </div>
+                <input
+                    type="text"
+                    id="input"
+                    placeholder="Paste the filename here"
+                    autofocus
+                    onclick="this.select()" />
                 <br />
                 <div class="outputLabelAndButtons">
                     <label class="outputLabel" for="output">Output:</label>
-                    <button onclick="fillSpaces()">Fill spaces</button>
-                    <button onclick="removeSpaces()">Remove "%20"s</button>
                     <button onclick="spinalCase()">spinal-case</button>
                     <button onclick="camelCase()">camelCase</button>
+                    <button onclick="sanitize()">Sanitize</button>
                 </div>
                 <div class="allResults">
                     <div name="output" class="output" id="output"></div>
