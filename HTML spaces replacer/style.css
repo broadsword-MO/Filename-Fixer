@@ -38,8 +38,7 @@ body {
     outline: 3px solid black;
 }
 
-h1,
-h2 {
+.heading {
     text-align: center;
 }
 
@@ -58,31 +57,33 @@ code {
 }
 
 input {
-    margin-top: 0.5em;
+    /* margin-top: 0.5em; */
     width: 100%;
     font-size: 1rem;
     margin-bottom: 0.4em;
 }
 
-input,
-button,
-.allResults {
-    padding: 0.5em;
-}
-
+.inputLabelAndButtons,
 .outputLabelAndButtons {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+input,
+button,
+.allResults {
+    padding: 0.5em;
+}    
+
 button {
     font-size: 0.7em;
     margin-bottom: 0.75em;
+    cursor: pointer; 
 }
 
 .output {
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
     margin-top: 0.5em;
     min-height: 1.4em;
     margin-bottom: 1em;
@@ -93,7 +94,7 @@ button {
 }
 
 .recentResults {
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
 }
 
 @media screen and (min-width: 450px){
