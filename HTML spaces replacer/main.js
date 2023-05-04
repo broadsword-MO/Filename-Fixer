@@ -16,9 +16,9 @@ function getAndTrimText() {
 }
 
 function addResultToRecentWithBreak() {
-    `${getSelectedText()}<br />` != recentResults[0] &&
-        recentResults.unshift(`${getSelectedText()}<br />`);
-    recentResults.length > 5 && recentResults.pop();
+    `${getSelectedText()}<hr />` != recentResults[0] &&
+        recentResults.unshift(`${getSelectedText()}<hr />`);
+    recentResults.length > 6 && recentResults.pop();
 }
 
 function selectStringCopy() {
@@ -48,6 +48,21 @@ function removeSpaces() {
     setHtmlSSC(fixedFilename);
 }
 
+function snakeCase() {
+    const trimFilename = getAndTrimText();
+    let extension;
+    const splitName = trimFilename.split('.');
+    splitName.length > 1 && (extension = splitName.pop().toLowerCase());
+    const name = splitName
+        .join(' ')
+        .trim()
+        .replace(/(?:%20|[_\W])+/g, '_')
+        .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
+        .toLowerCase();
+    const fixedFilename = extension ? `${name}.${extension}` : name;
+    setHtmlSSC(fixedFilename);
+}
+
 function spinalCase() {
     const trimFilename = getAndTrimText();
     let extension;
@@ -55,8 +70,9 @@ function spinalCase() {
     splitName.length > 1 && (extension = splitName.pop().toLowerCase());
     const name = splitName
         .join(' ')
-        .replace(/([a-z0-9])[ _-]*([A-Z])|%20/g, '$1-$2')
-        .replace(/([a-z0-9])[ _-]+([a-z0-9])/g, '$1-$2')
+        .trim()
+        .replace(/(?:%20|[_\W])+/g, '-')
+        .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
         .toLowerCase();
     const fixedFilename = extension ? `${name}.${extension}` : name;
     setHtmlSSC(fixedFilename);
@@ -69,7 +85,7 @@ function camelCase() {
     splitName.length > 1 && (extension = splitName.pop().toLowerCase());
     const name = splitName
         .join(' ')
-        .replace(/[-_.]|%20/g, ' ')
+        .replace(/(?:%20|[_\W])+/g, ' ')
         .replace(/\b\w/g, (char, index) =>
             index === 0 ? char.toLowerCase() : char.toUpperCase()
         )
@@ -78,4 +94,18 @@ function camelCase() {
     setHtmlSSC(fixedFilename);
 }
 
-// This isYour%20other-file.html
+function sanitize() {
+    const trimFilename = getAndTrimText();
+    let extension;
+    const splitName = trimFilename.split('.');
+    splitName.length > 1 && (extension = splitName.pop().toLowerCase());
+    const name = splitName
+        .join('.')
+        .replace(/(_|%20|[^\w#&(),'.-])+/g, ' ')
+        .replace(/([a-z0-9])([A-Z]|\()/g, '$1 $2')
+        .trim();
+    const fixedFilename = extension ? `${name}.${extension}` : name;
+    setHtmlSSC(fixedFilename);
+}
+
+// This _isYour%20other-file.html |[^#&()-]
