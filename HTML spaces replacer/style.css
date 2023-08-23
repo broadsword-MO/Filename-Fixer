@@ -28,7 +28,7 @@ body {
     padding: 1.5em;
     margin: auto; /* Necessary for flex w/ overflow */
     max-width: 64ch; /* Necessary for flex w/ overflow */
-    border-radius: 0; /* No rounding here for mobile */
+    border-radius: 0; /* No rounding here for mobile first */
 }
 
 .heading {
@@ -56,11 +56,19 @@ code {
     font-size: 0.9rem;
 }
 
+label {
+    font-size: 1.2rem;
+}
+
 input {
     /* margin-top: 0.5em; */
     width: 100%;
     font-size: 1rem;
     margin-bottom: 0.4em;
+}
+
+.inputLabel {
+    padding-left: 0.3em;
 }
 
 .inputLabelAndButtons,
@@ -74,12 +82,16 @@ input,
 button,
 .allResults {
     padding: 0.5em;
-}    
+}
 
 button {
     font-size: 0.7em;
     margin-bottom: 0.75em;
-    cursor: pointer; 
+    cursor: pointer;
+}
+
+.allResults {
+    outline: 3px solid var(--offwhite);
 }
 
 .output {
@@ -89,21 +101,39 @@ button {
     margin-bottom: 1em;
 }
 
-.allResults {
-    outline: 3px solid var(--offwhite);
+.outputLabel {
+    padding: 0.3em;
+    border: 3px solid var(--offwhite);
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.recResLabelAndButton {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.5em;
+    border-radius: 0;
+    border-top: 3px solid var(--offwhite);
+}
+
+.clearAll {
+    background-color: red;
+    color: white;
+    border-color: white;
 }
 
 .recentResults {
     overflow-wrap: anywhere;
 }
 
-@media screen and (min-width: 450px){
+@media screen and (min-width: 450px) {
     .content {
         border-radius: 1.5em;
     }
 }
 
-@media screen and (min-width: 550px){
+@media screen and (min-width: 550px) {
     .line-break {
         display: none;
     }
