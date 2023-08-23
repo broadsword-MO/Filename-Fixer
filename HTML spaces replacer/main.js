@@ -1,4 +1,3 @@
-/* eslint-disable */
 // NOTE For PWA setup: Register the service worker JS file
 window.onload = () => {
     // 'use strict'; // May be unnecessary here
@@ -17,12 +16,12 @@ window.onload = () => {
 // If 'recentResults' exists, get the string from localStorage and
 // Convert the string back to an array using JSON.parse()
 const recentResults = localStorage.getItem('recentResults')
-? JSON.parse(localStorage.getItem('recentResults'))
+    ? JSON.parse(localStorage.getItem('recentResults'))
     : [];
-    
-    document.getElementById('recentResults').setHTML(recentResults.join(' '));
-    
-    // ===================================================
+
+document.getElementById('recentResults').setHTML(recentResults.join(' '));
+
+// ===================================================
 //                   Functions
 // ===================================================
 const makeSelection = (elem) => window.getSelection().selectAllChildren(elem);
@@ -30,7 +29,7 @@ const getSelectedText = () => window.getSelection().toString();
 const copyToClipboard = (text) =>
     navigator.clipboard?.writeText && navigator.clipboard.writeText(text);
 
-    function getAndTrimText() {
+function getAndTrimText() {
     // .value only works to extract current text with 'input', 'form', 'textarea' etc.
     const filename = document.getElementById('input').value;
     const trimFilename = filename.replace(/^"|"$/g, '').trim();
