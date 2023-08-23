@@ -4,14 +4,22 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="white" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Filename Fixer" />
+        <meta
+            name="msapplication-TileImage"
+            content="images/filenameFixer-144.png" />
+        <meta name="msapplication-TileColor" content="#FFFFFF" />
+        <!-- <link rel="manifest" href="manifest.json" /> -->
         <link rel="stylesheet" href="style.css" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="images/filenameFixer-152.png" />
         <title>Filename Fixer</title>
-        <script src="main.js"></script>
     </head>
 
-    <!-- - Still needs refinement. Howdy
-        - Some thoughts:
-            - Ability to save the most recent results to temporary cache or some such. Maybe PWA style -->
+    <!-- - Still needs cleaning up. Howdy (fork) -->
 
     <body>
         <div class="wrapper">
@@ -22,7 +30,10 @@
                         Alter filenames to work<br class="line-break" />
                         wherever you need
                     </h2>
-                    <p>A click on any button will copy the results to your clipboard</p>
+                    <p>
+                        A click on any gray button will copy the results to your
+                        clipboard
+                    </p>
                 </div>
                 <p class="description">
                     <b>Fill spaces</b> with <b>%20</b> to work in your browser.
@@ -90,10 +101,16 @@
                 </div>
                 <div class="allResults">
                     <div name="output" class="output" id="output"></div>
-                    <u>Recent results:</u>
+                    <div class="recResLabelAndButton">
+                        <label class="recResLabel"><u>Recent results:</u
+                        ></label><button class="clearAll" onclick="clearAll()">
+                            Clear all
+                        </button>
+                    </div>
                     <p class="recentResults" id="recentResults"></p>
                 </div>
             </div>
         </div>
+        <script src="main.js"></script>
     </body>
 </html>
