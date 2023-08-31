@@ -1,6 +1,7 @@
-/* eslint-disable */
+/* eslint-disable no-restricted-globals */
+// This disable is for using self.whatever(). Don't know yet what can replace it
 const cacheName = 'filename_fixer-pwa';
-const filesToCache = ['/', '/Space_replacer.html', '/style.css', '/main.js'];
+const filesToCache = ['/', '/Filename_fixer.html', '/style.css', '/main.js'];
 
 /* Start the service worker and cache all of the app's content */
 self.addEventListener('install', (event) => {
