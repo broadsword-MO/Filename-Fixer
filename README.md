@@ -1,0 +1,2 @@
+# Filename-Fixer
+This small progressive web app (PWA) was just a coding exercise for me that got a little carried away. I wanted to make a handy PWA utility that would remove or add certain characters or change the format of file and variable names, using only HTML, CSS and JavaScript. No libraries or other downloads. And that's what I did. After the fact, I did an internet search and found two other (older) apps (both made for Windows) with the same name and general use. Oh well. Nothing new under the sun!
