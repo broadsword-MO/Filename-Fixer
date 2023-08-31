@@ -38,7 +38,7 @@ function getAndTrimText() {
 
 function addResultToRecentWithHR() {
     if (getSelectedText() !== '') {
-        `${getSelectedText()}<hr />` != recentResults[0] &&
+        `${getSelectedText()}<hr />` !== recentResults[0] &&
             recentResults.unshift(`${getSelectedText()}<hr />`);
         recentResults.length > 6 && recentResults.pop();
 
@@ -137,7 +137,7 @@ function sanitize() {
 
 function clearAll() {
     localStorage.clear();
-    location.reload();
+    window.location.reload();
 }
 
 // This _isYour%20other-file.html |[^#&()-]
